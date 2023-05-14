@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Лаба 2</title>
+  </head>
+  <body>
+    <br />
+    <input id="i1" type="number" placeholder="Enter number" min="10" max="99" />
+    <br />
+    <br />
+    <button id="btn" onclick="run()">Calculate</button>
+    <br />
+    <p id="result"></p>
+    <script>
+      function run() {
+        let number = document.getElementById("i1").value;
+
+        let dozens = false;
+        if (number > 9) {
+          dozens = Math.floor(number / 10);
+        }
+        let secondDigit = 1;
+
+        let numberStr = number.toString();
+        if(numberStr.length > 1){
+            secondDigit = parseInt(numberStr[1]);
+        }else{
+            secondDigit = parseInt(numberStr[0]);
+        }
+
+        let resultText = "";
+        if (dozens) {
+          switch (dozens) {
+            case 1:
+              switch (secondDigit) {
+                case 0:
+                  resultText += "Десять ";
+                  break;
+                case 1:
+                  resultText += "Одинадцять ";
+                  break;
+                case 2:
+                  resultText += "Дванадцять ";
+                  break;
+                case 3:
+                  resultText += "Тринадцять ";
+                  break;
+                case 4:
+                  resultText += "Чотирнадцять ";
+                  break;
+                case 5:
+                  resultText += "П'ятнадцять ";
+                  break;
+                case 6:
+                  resultText += "Шiстнадцять ";
+                  break;
+                case 7:
+                  resultText += "Сiмнадцять ";
+                  break;
+                case 8:
+                  resultText += "Вiсiмнадцять ";
+                  break;
+                case 9:
+                  resultText += "Дев'ятнадцять ";
+                  break;
+              }
+              break;
+            case 2:
+              resultText += "Двадцять ";
+              break;
+            case 3:
+              resultText += "Тридцять ";
+              break;
+            case 4:
+              resultText += "Сорок ";
+              break;
+            case 5:
+              resultText += "П'ятдесят ";
+              break;
+            case 6:
+              resultText += "Шiстдесят ";
+              break;
+          }
+        }
+
+        if (dozens !== 1) {
+          switch (secondDigit) {
+            case 1:
+              resultText += "один ";
+              break;
+            case 2:
+              resultText += "два ";
+              break;
+            case 3:
+              resultText += "три ";
+              break;
+            case 4:
+              resultText += "чотири ";
+              break;
+            case 5:
+              resultText += "п'ять ";
+              break;
+            case 6:
+              resultText += "шiсть ";
+              break;
+            case 7:
+              resultText += "сiм ";
+              break;
+            case 8:
+              resultText += "вiсiм ";
+              break;
+            case 9:
+              resultText += "дев'ять ";
+              break;
+          }
+        }
+
+        resultText = resultText.charAt(0).toUpperCase() + resultText.slice(1);
+
+        document.getElementById("result").innerHTML = resultText;
+      }
+    </script>
+  </body>
+</html>

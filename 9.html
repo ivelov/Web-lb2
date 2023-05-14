@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Лаба 2</title>
+  </head>
+  <body>
+    <script>
+      function unique(arr) {
+        let newArr = [...arr];
+        for (let i = 0; i < newArr.length; i++) {
+          for (let j = i+1; j < newArr.length; j++) {
+            if(newArr[i] === newArr[j]){
+              newArr.splice(j, 1);
+              j--;
+            }
+          }
+        }
+
+        return newArr;
+      }
+
+      let arr = ["кришна", "кришна", "харе", "харе",
+      "харе", "харе", "кришна", "кришна", "8-()"
+      ];
+      alert(unique(arr));
+    </script>
+  </body>
+</html>

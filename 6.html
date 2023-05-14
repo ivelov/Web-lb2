@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Лаба 2</title>
+  </head>
+  <body>
+    <button onclick="run()">Run</button>
+    <script>
+      let obj = {
+        className: "",
+      };
+
+      function addClass(obj, cls) {
+        let className = cls.trim();
+        let words = obj.className.split(' ');
+        for (let i = 0; i < words.length; i++) {
+          if(words[i] === className){
+            return;
+          }
+        }
+
+        if(words[0]){
+          obj.className += " " + className;  
+        }else{
+          obj.className = className;
+        }
+      }
+
+      function run() {
+        let className = prompt("Enter class name", "menu");
+
+        addClass(obj, className);
+        alert(obj.className)
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Лаба 2</title>
+  </head>
+  <body>
+    <button onclick="run()">Run</button>
+    <script>
+      let obj = {
+        className: "menu arr a menu",
+      };
+
+      function removeClass(obj, cls) {
+        let className = cls.trim();
+        let words = obj.className.split(' ');
+        let newClassNames = "";
+        for (let i = 0; i < words.length; i++) {
+          if(words[i] !== className){
+            newClassNames += words[i];
+            if(i+1 < words.length){
+              newClassNames += " ";
+            }
+          }
+        }
+
+        obj.className = newClassNames;
+      }
+
+      function run() {
+        let className = prompt("Enter class name", "menu");
+
+        removeClass(obj, className);
+        alert(obj.className)
+      }
+    </script>
+  </body>
+</html>
